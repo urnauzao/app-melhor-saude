@@ -1,25 +1,32 @@
 import React from 'react';
-import {Text, View, TouchableOpactity} from 'react-native';
+import {Text, View, TouchableOpacity} from 'react-native';
 import styles from './SideMenuStyle';
 
 export default SideMenuView = (props) => {
     return (
         <View style={styles.contaier}>
             <View style={styles.navSectionStyle}>
-                <TouchableOpactity>
+                <TouchableOpacity>
                     <View style={styles.navItemStyle}>
                         <Text style={styles.navItemTitleStyle}>
-                            Lugares
+                            Início
                         </Text>
                     </View>
-                </TouchableOpactity>
-                <TouchableOpactity>
+                </TouchableOpacity>
+                <TouchableOpacity>
                     <View style={styles.navItemStyle}>
                         <Text style={styles.navItemTitleStyle}>
-                            Meus Lugares
+                            Serviços
                         </Text>
                     </View>
-                </TouchableOpactity>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <View style={styles.navItemStyle}>
+                        <Text style={styles.navItemTitleStyle}>
+                            Clínicas
+                        </Text>
+                    </View>
+                </TouchableOpacity>
             </View>
         </View>
     );

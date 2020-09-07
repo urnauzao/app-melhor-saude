@@ -5,11 +5,17 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 
 import HomeController from '../screens/Home/Controller/HomeController';
 import SideMenu from '../screens/SideMenu/Controller/SideMenuController';
+import ClinicaController from '../screens/Clinica/Controller/ClinicaController';
+import ClinicaDetalheController from '../screens/ClinicaDetalhe/Controller/ClinicaDetalheController';
+import ServicosController from '../screens/Servicos/Controller/ServicosController';
 
 const AppLogged = createDrawerNavigator(
     {
         Places: createStackNavigator({
             Home: HomeController,
+            Clinica: ClinicaController,
+            ClinicaDetalhe: ClinicaDetalheController,
+            Servicos: ServicosController,
         })
     },{
         initialRouteName: 'Places',
