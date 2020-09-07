@@ -8,9 +8,16 @@ class HomeController extends React.Component{
         this.homeModel = new HomeModel();
     }
 
+    goToServicos = () => {
+        this.props.navigation.navigate('Servicos');
+    }
+
     render(){
         return (
-            <HomeView/>
+            <HomeView
+                onButtonPressed={this.buttonPressed}
+                goToServicos={this.goToServicos}
+            />
         )
     }
 }
