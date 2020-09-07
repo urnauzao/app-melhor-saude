@@ -16,11 +16,11 @@ const AppLogged = createDrawerNavigator(
             Clinica: ClinicaController,
             ClinicaDetalhe: ClinicaDetalheController,
             Servicos: ServicosController,
-        })
+        }), 
     },{
         initialRouteName: 'Places',
         contentComponent: SideMenu,
-    }
+    },
 );
 
 const AppContainer = createAppContainer(AppLogged);
