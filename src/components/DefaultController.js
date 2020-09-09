@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import {Icon} from 'react-native-elements';
 
 export default class DefaultController extends React.Component{
     static navigationOptions = ({navigation}) => {
@@ -16,7 +17,8 @@ export default class DefaultController extends React.Component{
 
         if(!navigation.getParam('showBackButton', false)){
             let view = (
-                <TouchableOpacity onPress={ () => navigation.toggleDrawer()}>
+                <TouchableOpacity 
+                    onPress={ () => navigation.toggleDrawer()}>
                     <View style={
                         {
                             paddingLeft: 20,
@@ -25,7 +27,11 @@ export default class DefaultController extends React.Component{
                             paddingTop: 10
                         }
                     }>
-                        <Text>Menu</Text>
+                        <Icon 
+                            name='bars'
+                            type='font-awesome'
+                            color='#000'
+                        />
                     </View>
                 </TouchableOpacity>
             );
