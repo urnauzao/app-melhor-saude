@@ -14,36 +14,64 @@ class ServicosController extends DefaultController {
             return Math.floor(Math.random() * (max - min)) + min;
         }
 
-        for(let i = 0; i<5; i++){
-            arrayServicos.push({
-                id: 3000+i,
-                titulo: "Servico Urnau #"+i,
-                url: "https://cdn.pixabay.com/photo/2020/09/01/05/45/vitruvian-man-5534282__340.jpg",
-                subtitulo: "Minha Observacao",
-                rating: getRandomInt(0,5),
-                category: "Servicos"
-            });
-        }
+        // for(let i = 0; i<5; i++){
+        //     arrayServicos.push({
+        //         id: 3000+i,
+        //         titulo: "Servico Urnau #"+i,
+        //         url: "https://cdn.pixabay.com/photo/2020/09/01/05/45/vitruvian-man-5534282__340.jpg",
+        //         descricao: "Minha Observacao",
+        //         rating: getRandomInt(0,5),
+        //         category: "Servicos"
+        //     });
+        // }
+        arrayServicos.push({
+            id: 'servido-dentista',
+            titulo: "Dentistas",
+            url: "https://cdn.pixabay.com/photo/2020/09/01/05/45/vitruvian-man-5534282__340.jpg",
+            descricao: "Atendimento diversificados",
+            rating: getRandomInt(3,5),
+            category: "Servicos"
+        })
+
+        arrayServicos.push({
+            id: 'servico-medico-geral',
+            titulo: "Médicos Gerais",
+            url: "https://saude.rs.gov.br/upload/recortes/202004/27132744_140065_GD.jpg",
+            descricao: "Atendimento 24 horas",
+            rating: getRandomInt(2,5),
+            category: "Servicos"
+        })
+
+        
+        arrayServicos.push({
+            id: 'servico-neurocirurgiao',
+            titulo: "Neurocirurgiões",
+            url: "https://saude.rs.gov.br/upload/recortes/202004/27132744_140065_GD.jpg",
+            descricao: "Atendimento 24 horas",
+            rating: getRandomInt(2,5),
+            category: "Servicos"
+        })
 
         this.state = {
             originalArrayServicos: [... arrayServicos],
+            filteredArrayServicos: [... arrayServicos],
             search: "",
         }
 
     }
 
-    goToServicoDetalhes = (id = null) => {
-        return this.props.navigation.navigate('Servicos');
-
+    goToServicoDetalhes = (id) => {
+        return this.props.navigation.navigate('Servico', id);
     }
 
     updateSearch = (text) => {
-        const filteredArrayServicos = this.state.originalArrayServicos.filter((info) => {
-            return info.titulo.includes(text);
+        let textValidator = text.toUpperCase();
+        const filteredArray = this.state.originalArrayServicos.filter((info) => {
+            return info.titulo.toUpperCase().includes(textValidator);
         });
         
         this.setState({
-            filteredArrayServicos: [... filteredArrayServicos],
+            filteredArrayServicos: [... filteredArray],
             search: text,
         })
 
@@ -55,7 +83,7 @@ class ServicosController extends DefaultController {
                 onButtonPressed={this.buttonPressed}
                 updateSearch={this.updateSearch}
                 search={this.state.search}
-                filteredArrayServicos={this.state.originalArrayServicos}
+                filteredArrayServicos={this.state.filteredArrayServicos}
                 goToServicoDetalhes={this.goToServicoDetalhes()}
             />
         )
