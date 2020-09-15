@@ -1,6 +1,8 @@
 import React from 'react';
 import ClinicaView from '../View/ClinicaView';
 import DefaultController from './../../../components/DefaultController';
+import imagemModeloMedico from './../../../assets/images/exemplos/medico.jpg';
+
 
 class ClinicaController extends DefaultController{
     constructor(props) {
@@ -68,14 +70,47 @@ class ClinicaController extends DefaultController{
             endereco: "Av Brasileirissima",
             numEndereco: "291",
             complemento: "sala 5",
-            cep: "02002-010",
+            cep: "02321-010",
             cidade: "São Paulo",
             bairro: "Barra Funda",
             estado: "SP",
             pais: "Brasil",
             rating: getRandomInt(3,5),
-            category: ['maternidade'],
+            category: ['hospital'],
             medicos: [
+                {
+                    id: 'joaodedonatello',
+                    nome: "João de Donatello",
+                    idade: 50, 
+                    especializacao: "Cirurgião Caríaco",
+                    precoConsulta: 500,
+                    telefone: "+55 11 99910-0020",
+                    email: "joaodonatello@gmail.com",
+                    whatsapp: 5511999100020,
+                    foto: imagemModeloMedico,
+                },
+                {
+                    id: "anabreatrizscarelly",
+                    nome: "Ana Beatriz Scarelly",
+                    idade: 46, 
+                    especializacao: "Cirurião Geral",
+                    precoConsulta: 490,
+                    telefone: "+55 11 95420-0020",
+                    email: "anabreatrizscarelly@yahoo.com.br",
+                    whatsapp: 5511954200020,
+                    foto: imagemModeloMedico,
+                },
+                {
+                    id: "sofiastefaniamaggie",
+                    nome: "Sofia Stefania Maggie",
+                    idade: 32, 
+                    especializacao: "Psicóloga",
+                    precoConsulta: 400,
+                    telefone: "+55 11 99100-0124",
+                    email: "sofiastefania_2020@hotmail.com",
+                    whatsapp: 5511991000124,
+                    foto: imagemModeloMedico,
+                },
 
             ]
         })

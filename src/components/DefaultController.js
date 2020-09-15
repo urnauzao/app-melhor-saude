@@ -7,9 +7,9 @@ export default class DefaultController extends React.Component{
         let navigationProps = null;
 
         navigationProps = {
-            headerTintColor: '#000',
+            headerTintColor: 'white',
             headerStyle:{
-                backgroundColor: '#f5ffff'
+                backgroundColor: '#2C5269'
             },
             
         };

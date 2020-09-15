@@ -14,15 +14,15 @@ class SideMenuController extends React.Component{
         this.props.navigation.navigate('Home');
     }
 
-    goToClinica = () => {
-        this.props.navigation.navigate('Clinica');
+    goToClinicas = () => {
+        this.props.navigation.navigate('Clinicas');
     }
 
     render(){
         return (
             <SideMenuView
                 onButtonPressed={this.buttonPressed}
-                goToClinica={this.goToClinica}
+                goToClinicas={this.goToClinicas}
                 goToHome={this.goToHome}
                 goToServico={this.goToServico}
             />

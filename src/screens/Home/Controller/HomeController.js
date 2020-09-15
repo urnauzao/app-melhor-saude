@@ -53,6 +53,9 @@ class HomeController extends DefaultController{
         return this.props.navigation.navigate('Servicos');
     }
 
+    goToClinicas = () => {
+        return this.props.navigation.navigate('Clinicas');
+    }
 
     updateSearch = (text) => {
         const filteredArrayServicos = this.state.originalArrayServicos.filter((info) => {
@@ -80,6 +83,7 @@ class HomeController extends DefaultController{
                 filteredArrayServicos={this.state.originalArrayServicos}
                 filteredArrayClinicas={this.state.originalArrayClfilteredArrayClinicas}
                 goToServicos={this.goToServicos}
+                goToClinicas={this.goToClinicas}
             />
         )
     }

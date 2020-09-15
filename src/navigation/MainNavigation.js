@@ -13,7 +13,7 @@ const AppLogged = createDrawerNavigator(
     {
         Places: createStackNavigator({
             Home: HomeController,
-            Clinica: ClinicaController,
+            Clinicas: ClinicaController,
             ClinicaDetalhe: ClinicaDetalheController,
             Servicos: ServicosController,
         }), 

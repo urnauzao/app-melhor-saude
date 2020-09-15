@@ -13,7 +13,7 @@ export default SideMenuView = (props) => {
                         </Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={props.goToClinica}>
+                <TouchableOpacity onPress={props.goToClinicas}>
                     <View style={styles.navItemStyle}>
                         <Text style={styles.navItemTitleStyle}>
                             Clínicas

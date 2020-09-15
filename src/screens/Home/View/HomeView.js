@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity, SafeAreaView, FlatList, ScrollView, Butto
 import styles from './HomeStyle';
 import { SearchBar, Image, Rating, Card } from 'react-native-elements';
 import imageBanner from '../../../assets/images/banner.jpg';
+import imageServicos from '../../../assets/images/icon_servicos.png';
+import imageClinicas from '../../../assets/images/icon_clinicas.png';
 // import { ScrollView } from 'react-native-gesture-handler';
 
 const RenderServicos = ({item,press}) => {
@@ -46,75 +48,45 @@ const RenderClinicas = ({item,press}) => {
 }
 
 const HomeView = (props) => {
-
+    
     const teste = 'Melhor Saúde';
 
-    // const obj = {
-    //     titulo: "Urnau",
-    //     url: "https://cdn.pixabay.com/photo/2020/09/01/05/45/vitruvian-man-5534282__340.jpg",
-    //     subtitulo: "Minha Observacao",
-    //     rating: 4.5,  
-    // }
-
-    // let itemsServicos = [];
-
-    // for(i=0;i<10;i++){
-    //     itemsServicos.push(
-    //         <Card key={Math.random()} style={{flex: 1, width:120}} >
-    //         <Card.Title>{obj.titulo}</Card.Title>
-    //         <Card.Divider/>
-    //         <View style={{alignItems: "center"}}>
-    //             <Image
-    //                 style={{height:50, width:50}}
-    //                 resizeMode="cover"
-    //                 source={{uri: obj.url}}
-    //             />
-    //                 <Text style={styles.subtitulo}>{obj.subtitulo}</Text>
-    //                 <Rating imageSize={20} readonly startingValue={obj.rating} style={styles.rating} />
-    //         </View>
-    //         </Card>
-    //     )
-    // }
-
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{backgroundColor:"#DBE8B3", flex:1}}>
             <ScrollView>
         <View style={styles.container}>
-            <SearchBar 
-                placeholder="Faça uma busca aqui!"
-                onChangeText={props.updateSearch}
-                value={props.search}
-                lightTheme={true}
-                inputStyle={styles.inputSearchBarStyle}
-                inputContainerStyle={styles.inputSearchBarStyle}
-            />
-            <Image 
-                style={{ height:100, left: 0, right: 0 }}
-                source={imageBanner}
-            />
+
             <View style={{paddingRight:50, paddingLeft:50, paddingTop: 50}}>
-                <Button
+                <TouchableOpacity
                     onPress={props.goToServicos}
                     title="Serviços"
-                    color="#841584"
-                    accessibilityLabel="Acesse nossa lista com todos os serviços disponíveis!"
+                    color="white"
+                    style={{flex:1, alignSelf:"center", backgroundColor:"white", borderRadius: 5, padding: 15}}
+                >
+                <Image 
+                    source={imageServicos}
+                    style={{height:50, width:50}}
                 />
+                <Text>
+                    Serviços
+                </Text>
+                </TouchableOpacity>
             </View>
-            <View style={{paddingRight:50, paddingLeft:50, paddingTop: 10}}>
-                <Button
-                    onPress={props.goToServicos}
+            <View style={{paddingRight:50, paddingLeft:50, paddingTop: 10, marginTop: 20}}>
+                <TouchableOpacity
+                    onPress={props.goToClinicas}
                     title="Clínicas"
-                    color="#841584"
-                    accessibilityLabel="Acesse nossa lista com todas as clínicas disponíveis!"
-                />
-            </View>
-            <View style={{paddingRight:50, paddingLeft:50, paddingTop: 10}}>
-                <Button
-                    onPress={props.goToServicos}
-                    title="Médicos"
-                    color="#841584"
-                    accessibilityLabel="Acesse nossa lista com todos os médicos disponíveis!"
-                />
+                    color="white"
+                    style={{flex:1, alignSelf:"center", backgroundColor:"white", borderRadius: 5, padding: 15}}
+                >
+                    <Image 
+                        source={imageClinicas}
+                        style={{height:50, width:50}}
+                    />
+                    <Text>
+                        Serviços
+                    </Text>
+                </TouchableOpacity>
             </View>
         </View>
         {/* <View style={{ alignItems:"stretch",}}>
