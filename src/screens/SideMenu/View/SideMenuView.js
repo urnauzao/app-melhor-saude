@@ -4,7 +4,7 @@ import styles from './SideMenuStyle';
 
 export default SideMenuView = (props) => {
     return (
-        <View style={styles.contaier}>
+        <View style={styles.container}>
             <View style={styles.navSectionStyle}>
                 <TouchableOpacity onPress={props.goToHome}>
                     <View style={styles.navItemStyle}>

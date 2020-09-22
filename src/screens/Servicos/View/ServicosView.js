@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { View, FlatList, TouchableOpacity } from 'react-native';
 import styles from './ServicosStyle';
-import imageBanner from '../../../assets/images/banner.jpg';
-import { SearchBar, Image, Card, Rating, Avatar, ListItem, Tooltip } from 'react-native-elements';
+import iconClinical from '../../../assets/images/clinical_icon.jpg';
+import { SearchBar, Avatar, ListItem} from 'react-native-elements';
 import { SafeAreaView } from 'react-navigation';
 
 
@@ -17,49 +17,39 @@ const header = (props, title) => {
                 inputStyle={styles.inputSearchBarStyle}
                 inputContainerStyle={styles.inputSearchBarStyle}
             />
-            {/* <Image 
-                style={{ height:100, left: 0, right: 0 }}
-                source={imageBanner}
-            />
-            <Text style={{ fontSize:20, textAlign:"center", marginTop:10 }}>{title}</Text> */}
         </View>
     );
 }
 
-const RenderCardServicos = ({item,press}) => {
-    return (
-        <TouchableOpacity onPress={()=>press(item)}>
-            <Card key={item.id} style={{flex: 1, width:120}} >
-                <Card.Title>{item.titulo}</Card.Title>
-                {/* <Card.Divider/> */}
-                <View style={{alignItems: "center"}}>
-                    <Image
-                        style={{height:50, width:50}}
-                        resizeMode="cover"
-                        source={{uri: item.url}}
-                    />
-                        {/* <Text style={styles.descricao}>{item.descricao}</Text> */}
-                        {/* <Rating imageSize={20} readonly startingValue={item.rating} style={styles.rating} /> */}
-                </View>
-            </Card>
-        </TouchableOpacity>
-    );
-}
-
-const RenderListServicos = ({item}) => {
+const RenderListServicos = ({item, press}) => {
+    let avatar = item.url ? {uri: item.url} : iconClinical;
     return (
         <TouchableOpacity 
-            style={{paddingRight:5, paddingLeft:5}}
+            style={{padding: 0}}
         >
-            <ListItem key={item.id} bottomDivider>
-                <Avatar source={{uri: item.url}} />
+            <ListItem key={item.id} bottomDivider
+            containerStyle={{padding:3}}>
+                <Avatar source={avatar} />
                 <ListItem.Content>
-                <ListItem.Title>{item.titulo}</ListItem.Title>
-                {/* <ListItem.Subtitle>{l.subtitle}</ListItem.Subtitle> */}
+                <ListItem.Title>{item.nome}</ListItem.Title>
+                <ListItem.Subtitle style={{fontSize:9, textAlign: "center", color: 'grey'}}>
+                    Total de Clínicas: {item.total}
+                </ListItem.Subtitle>
                 </ListItem.Content>
-                <Tooltip popover={<Text>Info here</Text>}>
+                <TouchableOpacity 
+                    style={{backgroundColor:"#0073C7", marginRight: 5, padding: 2.5, borderRadius: 3}}
+                    onPress={ () => press(item.id)
+                    // this.props.goToClinicas(item.id)
+                    }
+                >
                     <ListItem.Chevron/>
-                </Tooltip>
+                </TouchableOpacity>
+                {/* <Text style={}>
+                    
+                </Text> */}
+                {/* <Tooltip popover={<Text>Info here</Text>}>
+                    
+                </Tooltip> */}
             </ListItem>
         </TouchableOpacity>
     );
@@ -75,7 +65,11 @@ const ServicosView = (props) => {
             //     press={props.goToServicos} />
             // }
             renderItem={
-                ({item}) => <RenderListServicos item={item} />
+                ({item}) => <RenderListServicos item={item} 
+                press={
+                    () => props.goToClinicas({servico:{item}})
+                }
+                />
             }
             keyExtractor={item => item.id.toString()}
             // maxHeight={1000}

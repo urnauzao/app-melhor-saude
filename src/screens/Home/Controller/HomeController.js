@@ -7,7 +7,7 @@ import { ThemeConsumer } from 'react-native-elements';
 class HomeController extends DefaultController{
     constructor(props) {
         super(props);
-
+        console.log(props);
         let arrayServicos = [];
         let arrayClinicas = [];
 
@@ -46,7 +46,7 @@ class HomeController extends DefaultController{
         }
 
         this.homeModel = new HomeModel();
-
+        this.props.navigation.setParams({titlePage:'MelhorSaúde'});
     }
 
     goToServicos = () => {

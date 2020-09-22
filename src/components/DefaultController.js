@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
 import {Icon} from 'react-native-elements';
 
 export default class DefaultController extends React.Component{
@@ -7,9 +7,10 @@ export default class DefaultController extends React.Component{
         let navigationProps = null;
 
         navigationProps = {
+            title: navigation.getParam('titlePage', 'Tela'),
             headerTintColor: 'white',
             headerStyle:{
-                backgroundColor: '#2C5269'
+                backgroundColor: '#80B5A5'
             },
             
         };
@@ -30,7 +31,7 @@ export default class DefaultController extends React.Component{
                         <Icon 
                             name='bars'
                             type='font-awesome'
-                            color='#000'
+                            color='white'
                         />
                     </View>
                 </TouchableOpacity>

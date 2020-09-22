@@ -1,21 +1,17 @@
 import React from 'react';
 import ClinicaDetalheView from '../View/ClinicaDetalheView';
-
-class ClinicaDetalheController extends React.Component{
+import DefaultController from './../../../components/DefaultController';
+class ClinicaDetalheController extends DefaultController{
     constructor(props) {
         super(props);
-        console.log("urnau")
-        console.log(props);
 
         this.state = {
             clinica:this.props.navigation.state.params.clinica,
         }
 
-        // const clinica = false;
-        // if(this.props.navigation.state.params) {
+        this.props.navigation.setParams({titlePage:this.state.clinica.item.nome});
+        this.props.navigation.setParams({showBackButton:true});
         
-        // }
-        console.log(this.state.clinica)
     }
     render(){
         return (

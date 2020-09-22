@@ -1,6 +1,7 @@
 import React from 'react';
 import ServicosView from '../View/ServicosView';
 import DefaultController from './../../../components/DefaultController';
+import axios from 'axios';
 
 class ServicosController extends DefaultController {
     constructor(props) {
@@ -8,49 +9,11 @@ class ServicosController extends DefaultController {
 
         let arrayServicos = [];
 
-        const getRandomInt = (min = 0, max = 5) => {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min)) + min;
-        }
-
-        // for(let i = 0; i<5; i++){
-        //     arrayServicos.push({
-        //         id: 3000+i,
-        //         titulo: "Servico Urnau #"+i,
-        //         url: "https://cdn.pixabay.com/photo/2020/09/01/05/45/vitruvian-man-5534282__340.jpg",
-        //         descricao: "Minha Observacao",
-        //         rating: getRandomInt(0,5),
-        //         category: "Servicos"
-        //     });
+        // const getRandomInt = (min = 0, max = 5) => {
+        //     min = Math.ceil(min);
+        //     max = Math.floor(max);
+        //     return Math.floor(Math.random() * (max - min)) + min;
         // }
-        arrayServicos.push({
-            id: 'servido-dentista',
-            titulo: "Dentistas",
-            url: "https://cdn.pixabay.com/photo/2020/09/01/05/45/vitruvian-man-5534282__340.jpg",
-            descricao: "Atendimento diversificados",
-            rating: getRandomInt(3,5),
-            category: "Servicos"
-        })
-
-        arrayServicos.push({
-            id: 'servico-medico-geral',
-            titulo: "Médicos Gerais",
-            url: "https://saude.rs.gov.br/upload/recortes/202004/27132744_140065_GD.jpg",
-            descricao: "Atendimento 24 horas",
-            rating: getRandomInt(2,5),
-            category: "Servicos"
-        })
-
-        
-        arrayServicos.push({
-            id: 'servico-neurocirurgiao',
-            titulo: "Neurocirurgiões",
-            url: "https://saude.rs.gov.br/upload/recortes/202004/27132744_140065_GD.jpg",
-            descricao: "Atendimento 24 horas",
-            rating: getRandomInt(2,5),
-            category: "Servicos"
-        })
 
         this.state = {
             originalArrayServicos: [... arrayServicos],
@@ -58,23 +21,49 @@ class ServicosController extends DefaultController {
             search: "",
         }
 
+        this.props.navigation.setParams({titlePage:"Serviços"});
+
     }
 
-    goToServicoDetalhes = (id) => {
-        return this.props.navigation.navigate('Servico', id);
+    goToClinicas = ({servico}) => {
+        let id = servico.item.id;
+        axios.get('http://melhor-saude-webservice.herokuapp.com/servico/showWithClinicas/'+id)
+        .then(({data}) => {
+            // let arrayClinicas = data.servicos[0] || [];
+            // console.log(data);
+            // return;
+            return this.props.navigation.navigate('Clinicas', data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+        // return this.props.navigation.navigate('Clinicas');
     }
 
     updateSearch = (text) => {
         let textValidator = text.toUpperCase();
         const filteredArray = this.state.originalArrayServicos.filter((info) => {
-            return info.titulo.toUpperCase().includes(textValidator);
+            return info.nome.toUpperCase().includes(textValidator);
         });
+
         
         this.setState({
             filteredArrayServicos: [... filteredArray],
             search: text,
         })
 
+    }
+
+    componentDidMount(){
+        axios.get('http://melhor-saude-webservice.herokuapp.com/servico/show')
+        .then(({data}) => {
+            let originalArrayServicos = data.servicos || [];
+            this.setState({ originalArrayServicos });
+            this.updateSearch(this.state.search);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
     }
 
     render(){
@@ -84,7 +73,8 @@ class ServicosController extends DefaultController {
                 updateSearch={this.updateSearch}
                 search={this.state.search}
                 filteredArrayServicos={this.state.filteredArrayServicos}
-                goToServicoDetalhes={this.goToServicoDetalhes()}
+                goToClinicas={this.goToClinicas}
+                // goToServicoDetalhes={this.goToServicoDetalhes()}
             />
         )
     }

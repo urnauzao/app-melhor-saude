@@ -84,7 +84,7 @@ const HomeView = (props) => {
                         style={{height:50, width:50}}
                     />
                     <Text>
-                        Serviços
+                        Clinicas
                     </Text>
                 </TouchableOpacity>
             </View>
