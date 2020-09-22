@@ -17,7 +17,17 @@ Para alimentação eficiente do aplicativo foi desenvolvido uma Webservice(API) 
 A mesma se encontra hospeda e em execução na cloud Heroku, para acessa-la **[clique aqui](https://melhor-saude-webservice.herokuapp.com)**
 
 
+## Material de Apoio
+- **[Prototipação Figma](https://www.figma.com/file/7MIK4jMREmAz87FkCSnCP9/Melhor-Sa%C3%BAde?node-id=11%3A407)**
+- **[Repositório GIT da API](https://github.com/urnauzao/melhor-saude-webservice)** 
 
+
+
+## Desenvolvido por:
+- **[Julio Cesar Urnau de Almeida](https://www.linkedin.com/in/urnau/)**
+- **[Robson Diniz Araujo](https://www.linkedin.com/in/robsondaraujo/)**
+- **[Felipe Moraes](#)**
+- **[Gabriel Biasoli](#)**
 
 
 ## Instalação:
