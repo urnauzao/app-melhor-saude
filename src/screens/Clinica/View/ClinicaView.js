@@ -77,6 +77,8 @@ const ClinicaView = (props) => {
                 nestedScrollEnabled={true}
                 ListHeaderComponent={header(props)}
                 ListFooterComponent={<View style={styles.footer}></View>}
+                initialNumToRender={5}
+                initialScrollIndex={0}
             />
         </SafeAreaView>
     );

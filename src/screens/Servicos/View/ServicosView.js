@@ -13,9 +13,12 @@ const header = (props, title) => {
                 placeholder="Faça uma busca aqui!"
                 onChangeText={props.updateSearch}
                 value={props.search}
+                searchIcon={styles.searchIconSearchBar}
+                clearIcon={styles.clearIconSearchBar}
                 lightTheme={true}
-                inputStyle={styles.inputSearchBarStyle}
-                inputContainerStyle={styles.inputSearchBarStyle}
+                containerStyle={styles.containerSearchBar}
+                inputStyle={styles.inputSearchBar}
+                inputContainerStyle={styles.inputContainerSearchBar}
             />
         </View>
     );
@@ -39,17 +42,11 @@ const RenderListServicos = ({item, press}) => {
                 <TouchableOpacity 
                     style={{backgroundColor:"#0073C7", marginRight: 5, padding: 2.5, borderRadius: 3}}
                     onPress={ () => press(item.id)
-                    // this.props.goToClinicas(item.id)
                     }
                 >
                     <ListItem.Chevron/>
                 </TouchableOpacity>
-                {/* <Text style={}>
-                    
-                </Text> */}
-                {/* <Tooltip popover={<Text>Info here</Text>}>
-                    
-                </Tooltip> */}
+
             </ListItem>
         </TouchableOpacity>
     );
@@ -60,10 +57,6 @@ const ServicosView = (props) => {
         <SafeAreaView style={styles.container, {backgroundColor:"#DBE8B3", flex:1}}>
         <FlatList
             data={props.filteredArrayServicos}
-            // renderItem={
-            //     ({item}) => <RenderCardServicos item={item} 
-            //     press={props.goToServicos} />
-            // }
             renderItem={
                 ({item}) => <RenderListServicos item={item} 
                 press={
@@ -72,7 +65,6 @@ const ServicosView = (props) => {
                 />
             }
             keyExtractor={item => item.id.toString()}
-            // maxHeight={1000}
             nestedScrollEnabled={true}
             ListHeaderComponent={header(props, "Serviços")}
             ListFooterComponent={<View style={{marginTop: 25, height:20}}></View>}

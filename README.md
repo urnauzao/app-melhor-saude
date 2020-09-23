@@ -4,6 +4,12 @@
 ### Vídeo Demonstrativo
 - **[Video Beta 0.1](https://www.youtube.com/watch?v=7ttV8G1XVRc)**
 
+## Sobre / About
+Aplicativo Mobile React Native para listagem de clínicas e especialistas da área de saúde [pt-br]. 
+App Mobile React Native for to listing medical clinics and health experts [en-us].
+
+Desenvolvido para listar e apresentar opções para contato direto com clínicas, médicos e buscar profissionais qualificados com o melhor custo benefício.
+
 
 ## Requisitos:
 - Android Studio 

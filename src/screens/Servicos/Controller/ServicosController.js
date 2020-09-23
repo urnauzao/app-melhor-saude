@@ -9,12 +9,6 @@ class ServicosController extends DefaultController {
 
         let arrayServicos = [];
 
-        // const getRandomInt = (min = 0, max = 5) => {
-        //     min = Math.ceil(min);
-        //     max = Math.floor(max);
-        //     return Math.floor(Math.random() * (max - min)) + min;
-        // }
-
         this.state = {
             originalArrayServicos: [... arrayServicos],
             filteredArrayServicos: [... arrayServicos],
@@ -29,15 +23,13 @@ class ServicosController extends DefaultController {
         let id = servico.item.id;
         axios.get('http://melhor-saude-webservice.herokuapp.com/servico/showWithClinicas/'+id)
         .then(({data}) => {
-            // let arrayClinicas = data.servicos[0] || [];
-            // console.log(data);
-            // return;
+
             return this.props.navigation.navigate('Clinicas', data);
         })
         .catch((error) => {
             console.log(error);
         });
-        // return this.props.navigation.navigate('Clinicas');
+        
     }
 
     updateSearch = (text) => {
@@ -74,7 +66,6 @@ class ServicosController extends DefaultController {
                 search={this.state.search}
                 filteredArrayServicos={this.state.filteredArrayServicos}
                 goToClinicas={this.goToClinicas}
-                // goToServicoDetalhes={this.goToServicoDetalhes()}
             />
         )
     }
