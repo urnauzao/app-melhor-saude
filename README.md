@@ -3,6 +3,7 @@
 
 ### Vídeo Demonstrativo
 - **[Video Beta 0.1](https://www.youtube.com/watch?v=7ttV8G1XVRc)**
+- **[Video Final](https://www.youtube.com/watch?v=tQuMpdE92go)**
 
 ## Sobre / About
 Aplicativo Mobile React Native para listagem de clínicas e especialistas da área de saúde [pt-br]. 
